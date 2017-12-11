@@ -1,10 +1,15 @@
-FROM tensorflow/tensorflow:latest
+FROM tensorflow/tensorflow:latest-py3
 
 COPY opencv.zip /
 COPY opencv_contrib.zip /
 COPY ippicv_linux_20151201.tgz /
 COPY protobuf-cpp-3.1.0.tar.gz /
 COPY dlib-19.4.tar.bz2 /
+COPY sources.list /
+
+RUN cp /sources.list /etc/apt/sources.list
+RUN apt-get -y update
+RUN apt-get -y upgrade
 
 RUN apt-get update -y --fix-missing
 RUN apt-get install -y ffmpeg
