@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:latest
+FROM tensorflow/tensorflow:latest-py3
 
 COPY opencv.zip /
 COPY opencv_contrib.zip /
