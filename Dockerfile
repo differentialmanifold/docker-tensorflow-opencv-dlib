@@ -4,7 +4,7 @@ COPY opencv.zip /
 COPY opencv_contrib.zip /
 COPY ippicv_linux_20151201.tgz /
 COPY protobuf-cpp-3.1.0.tar.gz /
-COPY dlib-19.4.tar.bz2 /
+COPY dlib-19.7.tar.gz /
 COPY sources.list /
 
 RUN cp /sources.list /etc/apt/sources.list
@@ -57,19 +57,19 @@ RUN cd /opencv-3.2.0/ \
     && rm /opencv.zip \
     && rm /opencv_contrib.zip
 
-# Install dlib 19.4
+# Install dlib 19.7
 WORKDIR /
-RUN tar -vxjf dlib-19.4.tar.bz2
+RUN tar -vxjf dlib-19.7.tar.gz
 
-RUN cd dlib-19.4 \
+RUN cd dlib-19.7 \
     && mkdir build \
     && cd build \
     && cmake .. \
     && cmake --build . --config Release \
-    && cd /dlib-19.4 \
+    && cd /dlib-19.7 \
     && pip3 install setuptools \
     && python3 setup.py install \
     && cd $WORKDIR \
-    && rm /dlib-19.4.tar.bz2
+    && rm /dlib-19.7.tar.gz
 
 CMD ["/bin/bash"]
