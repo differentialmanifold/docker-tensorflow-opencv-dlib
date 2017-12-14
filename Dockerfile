@@ -59,7 +59,7 @@ RUN cd /opencv-3.2.0/ \
 
 # Install dlib 19.7
 WORKDIR /
-RUN tar -vxjf dlib-19.7.tar.gz
+RUN tar -zxvf dlib-19.7.tar.gz
 
 RUN cd dlib-19.7 \
     && mkdir build \
